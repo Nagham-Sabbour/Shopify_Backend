@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <h1>Inventory Tracking Web App</h1>
+
+    <form action="create">
+        <button style="font-size: 17px; border: 1px solid black; background-color: darkgreen; color: white;">Create</button><br>
+    </form>
+
+
+    
+    <form action="{{url_for('filter')}}" method="post">
+        <div style="float: right;font-size: 17px;">
+            <label>  Filter</label><br>
+            <select name="filter" style="font-size: 20px;">
+            <option>none</option>
+            <option>Item Count (100+)</option>
+            <option>Company Size (Large)</option>
+            </select><br>
+            <button type="submit" style="font-size: 17px;">Search</button>
+        </div>
+    </form><br><br>
+
+    <form>
+        <table style="border: 1px solid black;font-size: 17px; padding: 5px;">
+            <tr style="border: 1px solid black;font-size: 17px; padding: 5px;">
+                <th style="border: 1px solid black;font-size: 17px; padding: 5px;">Item ID</th>
+                <th style="border: 1px solid black;font-size: 17px; padding: 5px;">Warehouse ID</th>
+                <th style="border: 1px solid black;font-size: 17px; padding: 5px;">Item Count</th>
+                <th style="border: 1px solid black;font-size: 17px; padding: 5px;">Company</th>
+                <th style="border: 1px solid black;font-size: 17px; padding: 5px;">Drop-off Location</th>
+                <th style="border: 1px solid black;font-size: 17px; padding: 5px;">Edit</th>
+                <th style="border: 1px solid black;font-size: 17px; padding: 5px;">Delete</th>
+            </tr>
+
+            {% for row in inventory %}
+            <tr style="border: 1px solid black;font-size: 17px; padding: 5px;">
+                <td style="border: 1px solid black;font-size: 17px; padding: 5px;">{{row[0]}}</td>
+                <td style="border: 1px solid black;font-size: 17px; padding: 5px;">{{row[1]}}</td>
+                <td style="border: 1px solid black;font-size: 17px; padding: 5px;">{{row[2]}}</td>
+                <td style="border: 1px solid black;font-size: 17px; padding: 5px;">{{row[3]}}</td>
+                <td style="border: 1px solid black;font-size: 17px; padding: 5px;">{{row[4]}}</td>
+
+                <td style="border: 1px solid black;font-size: 17px; padding: 5px;"><a href="{{ url_for('goToUpdate', id=row[0]) }}" style="font-size: 17px; border: 1px solid black; background-color: darkblue; color: white;">Edit</button></td>
+                <td style="border: 1px solid black;font-size: 17px; padding: 5px;"><a href="{{ url_for('delete', id=row[0]) }}"
+                    onclick="return confirm('Are you sure you want to delete this entry?');" style="font-size: 17px; border: 1px solid black; background-color: darkred; color: white;">Delete</button></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+
+</html>

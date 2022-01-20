@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+
+    <body>
+        <h1>Aramex Inventory Tracking Web App</h1>
+        
+        <form action="create" method="post">
+            <h3>Create New Item</h3><br>
+            
+            <label>Warehouse ID</label><br>
+            <input name="warehouse_id" type="number" style="margin-bottom: 20px;"><br>
+
+            <label>Item Count:</label><br>
+            <input name="item_count" type="number" style="margin-bottom: 20px;"><br>
+
+            <label>Drop-off Location</label><br>
+            <input name="drop_off_loc" type="text" style="margin-bottom: 20px;"><br>
+
+            <label>Company</label><br>
+            <select name="company" style="margin-bottom: 20px;">
+                {% for row in merchants %}
+                <option>{{row[0]}}</option>
+                {% endfor %}
+            </select><br>
+            
+            <button type="submit" name="Button" value="Cancel">Cancel</button>
+            <button type="submit" name="Button" value="Save">Save</button>
+        </form>
+    </body>
+</html>
+
+<!-- onclick="return confirm('Error: Make sure all the feilds are filled in with the correct data!');" -->
