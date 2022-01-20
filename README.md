@@ -24,3 +24,6 @@ In the create you can chose to cancel and go back to the main page or click subm
 You can also choose to delete the item you just created by clicking the delte button next to it and a warning messege will pop up to confirm.
 You can also choose to edit the data in a certain item by just clicking the edit button next to it. 
 You will see that it is a very similar layout to the create page. Unfotunately I did not have time to implement the feature where it autofills the boxes with the data alreafy in the db, so you will HAVE to add in all the data again even if it is different in just one category. If you do not fill all the boxes it will not update in the database.
+
+The Extra Feature I chose to include is the filtering feature. I chose to display it using 2 options: "Item Count (100+)" and "Company Size (Large)".
+
