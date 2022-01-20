@@ -16,7 +16,7 @@ Then run the command “flask run” which should give you a link (make sure you
 Copy and paste the link into any browser 
 
 
-ABOUT THIS WEB APP
+ABOUT THIS WEB APP:
 ------------------
 This web app simulates a invontory whre it has the CRUD functionality, which means you can Creat, Review, Update, and Delete the items.
 Here I already have some items in the database "logistics_comp.db" but you can create your own by clicking the create button.
